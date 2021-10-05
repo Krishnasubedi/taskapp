@@ -14,6 +14,7 @@
 		DE6276C926F9FD8300E089B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE6276C726F9FD8300E089B1 /* Main.storyboard */; };
 		DE6276CB26F9FD8400E089B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE6276CA26F9FD8400E089B1 /* Assets.xcassets */; };
 		DE6276CE26F9FD8400E089B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE6276CC26F9FD8400E089B1 /* LaunchScreen.storyboard */; };
+		DE7C4DBB270C568B0088E1A0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7C4DBA270C568B0088E1A0 /* Category.swift */; };
 		DEA908A626FBF0100082BF24 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA908A526FBF0100082BF24 /* InputViewController.swift */; };
 		DEA908A826FC0BB90082BF24 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA908A726FC0BB90082BF24 /* Task.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		DE6276CA26F9FD8400E089B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE6276CD26F9FD8400E089B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE6276CF26F9FD8400E089B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE7C4DBA270C568B0088E1A0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DEA908A526FBF0100082BF24 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		DEA908A726FC0BB90082BF24 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +81,7 @@
 				DE6276C326F9FD8300E089B1 /* SceneDelegate.swift */,
 				DE6276C526F9FD8300E089B1 /* ViewController.swift */,
 				DEA908A726FC0BB90082BF24 /* Task.swift */,
+				DE7C4DBA270C568B0088E1A0 /* Category.swift */,
 				DEA908A526FBF0100082BF24 /* InputViewController.swift */,
 				DE6276C726F9FD8300E089B1 /* Main.storyboard */,
 				DE6276CA26F9FD8400E089B1 /* Assets.xcassets */,
@@ -216,6 +219,7 @@
 				DEA908A826FC0BB90082BF24 /* Task.swift in Sources */,
 				DE6276C426F9FD8300E089B1 /* SceneDelegate.swift in Sources */,
 				DEA908A626FBF0100082BF24 /* InputViewController.swift in Sources */,
+				DE7C4DBB270C568B0088E1A0 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

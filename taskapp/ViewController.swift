@@ -8,78 +8,31 @@
 import UIKit
 import RealmSwift
 import UserNotifications
-import DropDown
+//import DropDown
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    @IBOutlet weak var lblCategory: UILabel!
-    @IBOutlet weak var dropdownView: UIView!
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     // Realmインスタンスを取得する
     let realm = try! Realm()
-    
-    //Dropdownインスタンスを取得する
-    let dropDown = DropDown()
-    
-    let categoryList = ["健康","家庭","行政","教育","その他"]
     
     // DB内のタスクが格納されるリスト。
     // 日付の近い順でソート：昇順
     // 以降内容をアップデートするとリスト内は自動的に更新される。
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
         
-        //        dropDown.anchorView = dropdownView
-        //        dropDown.dataSource = categoryList
-        //
-        //        // Top of drop down will be below the anchorView
-        //        dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
-        //
-        //        // When drop down is displayed with `Direction.top`, it will be above the anchorView
-        //        dropDown.topOffset = CGPoint(x: 0, y:-(dropDown.anchorView?.plainView.bounds.height)!)
-        
-        // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(displayCategory))
-        self.dropdownView.addGestureRecognizer(tapGesture)
-        
-    }   
-    
-    
-    @objc func displayCategory(){
-        dropDown.show()
-        
-        dropDown.anchorView = dropdownView
-        dropDown.dataSource = categoryList
-        
-        // Top of drop down will be below the anchorView
-        dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
-        
-        // When drop down is displayed with `Direction.top`, it will be above the anchorView
-        dropDown.topOffset = CGPoint(x: 0, y:-(dropDown.anchorView?.plainView.bounds.height)!)
-        
-        // Action triggered on selection
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-            self.lblCategory.text = categoryList[index]
-            
-            //taskArray = realm.objects(Task.self).filter("category == self.lblCategory.text")
-            
-            let predicate = NSPredicate(format: "category == %@", categoryList[index] )
-            taskArray = realm.objects(Task.self).filter(predicate)
-            tableView.reloadData()
-        }
-        
+        searchBar.autocapitalizationType = .none
     }
-    
-    
-    
     // データの数（＝セルの数）を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taskArray.count
@@ -162,5 +115,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // これはエラーが出る。
+        //        let result = realm.objects(Task.self).filter("category = \(searchText)" )
+        //        taskArray = result
+        //        tableView.reloadData()
+        
+        
+        if searchText != "" {
+            let predicate = NSPredicate(format: "category == %@", searchText )
+            taskArray = realm.objects(Task.self).filter(predicate)
+            tableView.reloadData()
+        } else {
+            taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
+            tableView.reloadData()
+        }
+   
     }
 }

@@ -7,6 +7,6 @@ target 'taskapp' do
 
   # Pods for taskapp
 pod 'RealmSwift', '10.11.0'
-pod 'DropDown'
+
 
 end

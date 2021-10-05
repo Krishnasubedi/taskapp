@@ -14,6 +14,7 @@ class InputViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var datePIcker: UIDatePicker!
+    @IBOutlet weak var categoryTextField: UITextField!
     
     let realm = try! Realm()
     var task: Task!
@@ -28,6 +29,8 @@ class InputViewController: UIViewController {
         titleTextField.text = task.title
         contentsTextView.text = task.contents
         datePIcker.date = task.date
+        categoryTextField.text = task.category
+        
     }
     
     @objc func dismissKeyboard(){
@@ -36,11 +39,15 @@ class InputViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        //task を追加（＋）ボタンにタップして他の情報を入れないで一覧画面に戻った時は日付のみのからのタスクを表示される
+        // 日付以外は必須入力した方がいいかもれない
+        //if
         try! realm.write {
             self.task.title = self.titleTextField.text!
             self.task.contents = self.contentsTextView.text
             self.task.date = self.datePIcker.date
-            self.realm.add(self.task, update: .modified)
+            self.task.category = self.categoryTextField.text!
+            self.realm.add(self.task, update: .modified)            
         }
         
         setNotification(task: task)
