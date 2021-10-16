@@ -81,11 +81,11 @@
 				DE6276C326F9FD8300E089B1 /* SceneDelegate.swift */,
 				DE6276C526F9FD8300E089B1 /* ViewController.swift */,
 				DEA908A726FC0BB90082BF24 /* Task.swift */,
-				DE7C4DBA270C568B0088E1A0 /* Category.swift */,
 				DEA908A526FBF0100082BF24 /* InputViewController.swift */,
+				DE7C4DBA270C568B0088E1A0 /* Category.swift */,
+				DE6276CC26F9FD8400E089B1 /* LaunchScreen.storyboard */,
 				DE6276C726F9FD8300E089B1 /* Main.storyboard */,
 				DE6276CA26F9FD8400E089B1 /* Assets.xcassets */,
-				DE6276CC26F9FD8400E089B1 /* LaunchScreen.storyboard */,
 				DE6276CF26F9FD8400E089B1 /* Info.plist */,
 			);
 			path = taskapp;

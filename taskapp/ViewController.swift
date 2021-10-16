@@ -31,7 +31,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         searchBar.delegate = self
         
-        searchBar.autocapitalizationType = .none
+        searchBar.autocapit
+        
+        alizationType = .none
     }
     // データの数（＝セルの数）を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

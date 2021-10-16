@@ -9,6 +9,7 @@ import Foundation
 import RealmSwift
 
 class Category: Object {
+    /Users/krishnasubedi/iphone-course/working/taskapp/taskapp/Category.swift
     // id
     @objc dynamic var id = 0
     // カテゴリ
